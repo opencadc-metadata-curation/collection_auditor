@@ -1,0 +1,16 @@
+site_name	site_url
+argus	https://ws.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/argus
+ams_alma	https://ws.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/ams/alma
+ams_cfht	https://ws.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/ams/cfht
+ams_cirada	https://ws.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/ams/cirada
+ams_dao	https://ws.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/ams/dao
+ams_drao	https://ws.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/ams/drao
+ams_eao	https://ws.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/ams/eao
+ams_gemini	https://ws.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/ams/gemini
+ams_ngvs	https://ws.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/ams/ngvs
+ams_mast	https://ws.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/ams/mast
+ams_omm	https://ws.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/ams/omm
+ams_shared	https://ws.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/ams/shared
+mast	https://mast.stsci.edu/vo-tap/api/v0.1/caom
+sc2	https://sc2.canfar.net/sc2tap
+caom25	https://ws.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/caom25/argus

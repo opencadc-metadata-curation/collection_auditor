@@ -6,7 +6,7 @@ import os
 import sys
 
 ## Set up variables
-CERT_FILENAME = "./cadcproxy.pem"
+CERT_FILENAME = "/app/cadcproxy.pem"
 OUTPUT_DIRECTORY = f"artifactDiff_reports"
 OUTPUT_FILENAME_ROOT = "artifactDiff"
 SI_URL = "https://ws.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/luskan"
@@ -337,7 +337,7 @@ def read_configurations():
     ## Read static configuration files for mapping collections to SI namespaces.
     ## This file must contain the columns collection, si_namespace.
     try:
-        MAPPINGS_CONFIG = pl.read_csv("config/caomSiMappings.tsv", separator='\t')
+        MAPPINGS_CONFIG = pl.read_csv("/app/config/caomSiMappings.tsv", separator='\t')
     except FileNotFoundError as e:
         print(f"Error reading configuration file: {e}")
         exit(1)
@@ -345,7 +345,7 @@ def read_configurations():
     ## Read static configuration file for mapping collections to AMS sites.
     ## This file must contain the columns collection, in_si and ams_site.
     try:
-        COLLECTIONS_CONFIG = pl.read_csv("config/caomCollections.tsv", separator='\t')
+        COLLECTIONS_CONFIG = pl.read_csv("/app/config/caomCollections.tsv", separator='\t')
     except FileNotFoundError as e:
         print(f"Error reading collections file: {e}")
         exit(1)
@@ -353,7 +353,7 @@ def read_configurations():
     ## Read static configuration file for mapping AMS sites to URLs.
     ## This file must contain the columns site_name and site_url.
     try:
-        SITES_CONFIG = pl.read_csv("config/caomSites.tsv", separator='\t')
+        SITES_CONFIG = pl.read_csv("/app/config/caomSites.tsv", separator='\t')
     except FileNotFoundError as e:
         print(f"Error reading sites file: {e}")
         exit(1)
@@ -424,8 +424,9 @@ if __name__ == "__main__":
         exit(1)
     
     ## Determine where the siMonitoring directory is located and change to that directory.
-    if os.path.isdir("/Users/gaudet_1/work/collectionAuditing"):
-        os.chdir("/Users/gaudet_1/work/collectionAuditing")
+    home = os.getenv("HOME")
+    if os.path.isdir(f"{home}/collectionAuditing"):
+        os.chdir(f"{home}/collectionAuditing")
     elif os.path.isdir("/arc/projects/CADC/collectionAuditing"):
         os.chdir("/arc/projects/CADC/collectionAuditing")
     else:
@@ -438,7 +439,7 @@ if __name__ == "__main__":
         print(f"       {os.path.basename(sys.argv[0])} <-h || --help>")
         exit(0)
 
-    ## Reaed all configuration files into global dataframes.
+    ## Read all configuration files into global dataframes.
     read_configurations()
 
     ## Create the list of collections to verify, either from the list provided on the command line or from the configuration file.
