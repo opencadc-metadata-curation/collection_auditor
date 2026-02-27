@@ -337,7 +337,7 @@ def read_configurations():
     ## Read static configuration files for mapping collections to SI namespaces.
     ## This file must contain the columns collection, si_namespace.
     try:
-        MAPPINGS_CONFIG = pl.read_csv("/usr/local/config/caomSiMappings.tsv", separator='\t')
+        MAPPINGS_CONFIG = pl.read_csv("/usr/local/.config/caomSiMappings.tsv", separator='\t')
     except FileNotFoundError as e:
         print(f"Error reading configuration file: {e}")
         exit(1)
@@ -345,7 +345,7 @@ def read_configurations():
     ## Read static configuration file for mapping collections to AMS sites.
     ## This file must contain the columns collection, in_si and ams_site.
     try:
-        COLLECTIONS_CONFIG = pl.read_csv("/usr/local/config/caomCollections.tsv", separator='\t')
+        COLLECTIONS_CONFIG = pl.read_csv("/usr/local/.config/caomCollections.tsv", separator='\t')
     except FileNotFoundError as e:
         print(f"Error reading collections file: {e}")
         exit(1)
@@ -353,7 +353,7 @@ def read_configurations():
     ## Read static configuration file for mapping AMS sites to URLs.
     ## This file must contain the columns site_name and site_url.
     try:
-        SITES_CONFIG = pl.read_csv("/usr/local/config/caomSites.tsv", separator='\t')
+        SITES_CONFIG = pl.read_csv("/usr/local/.config/caomSites.tsv", separator='\t')
     except FileNotFoundError as e:
         print(f"Error reading sites file: {e}")
         exit(1)
