@@ -11,12 +11,13 @@ RUN pip install --no-cache-dir requests polars
 ARG OPENCADC_BRANCH=main
 ARG OPENCADC_REPO=opencadc
 
+COPY ./docker-entrypoint.sh /usr/local/bin/
+
 RUN git clone https://github.com/${OPENCADC_REPO}/collection_auditor.git && \
     cd collection_auditor && \
     git checkout ${OPENCADC_BRANCH} && \
     cd audit_tools && \
     cp *.py /usr/local/bin && \
-    cp *.sh /usr/local/bin && \
     mkdir /usr/local/.config && \
     cp config/* /usr/local/.config
 
