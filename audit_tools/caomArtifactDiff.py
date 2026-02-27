@@ -424,9 +424,8 @@ if __name__ == "__main__":
         exit(1)
     
     ## Determine where the siMonitoring directory is located and change to that directory.
-    home = os.getenv("HOME")
-    if os.path.isdir(f"{home}/collectionAuditing"):
-        os.chdir(f"{home}/collectionAuditing")
+    if os.path.isdir("/app/collectionAuditing"):
+        os.chdir("/app/collectionAuditing")
     elif os.path.isdir("/arc/projects/CADC/collectionAuditing"):
         os.chdir("/arc/projects/CADC/collectionAuditing")
     else:
