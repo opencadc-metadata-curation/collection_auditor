@@ -1,3 +1,5 @@
 #!/bin/bash
-exec "${@}"
+set -e
 
+# Execute the script
+exec python /usr/local/bin/caomArtifactDiff.py "$@"
