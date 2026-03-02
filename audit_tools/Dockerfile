@@ -9,7 +9,7 @@ RUN apt-get update --no-install-recommends && \
 RUN pip install --no-cache-dir requests polars
 
 ARG OPENCADC_BRANCH=main
-ARG OPENCADC_REPO=opencadc
+ARG OPENCADC_REPO=opencadc-metadata-curation
 
 COPY ./docker-entrypoint.sh /usr/local/bin/
 
