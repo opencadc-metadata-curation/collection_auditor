@@ -13,6 +13,8 @@ DAOCADC	True	False	True	False	ams_dao
 DAOPLATES	True	False	True	False	ams_dao
 DRAO	True	False	True	False	ams_drao
 EUCLID	True	True	True	False	ams_shared
+EUCLID.DR1	True	True	True	False	ams_shared
+EUCLID.Q1	True	True	True	False	ams_shared
 FUSE	True	False	True	False	ams_shared
 GEMINI	True	True	True	False	ams_gemini
 GEMINICADC	True	False	True	False	ams_gemini
