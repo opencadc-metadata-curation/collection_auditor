@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IMAGE="opencadc/audit_tools"
+IMAGE="opencadc/artifact-diff:3.13-slim"
 
 cp ~/.ssl/cadcproxy.pem .
 
