@@ -6,6 +6,6 @@ to the working directory.
 1. Execute the script: `./artifact_diff.sh`.
    1. If there are no parameters, the script will check all collections.
    1. To check a specific collection: `./artifact_diff.sh EUCLID.Q1`
-   1. The output files end up in a directory `./collectionAuditing` in the execution location.
-   1. A directory `'./config` is also created in the execution location. There are four configuration files in this directory.
-      If the message `Collection <collection name> not found in collections configuration file.`, it needs to be added to these files.
+   1. The output files end up in the directory `./collectionAuditing` in the execution location. Every time the script is executed, these files are over-written.
+   1. A directory `./config` is also created in the execution location. There are four configuration files in this directory.
+      If the message `Collection <collection name> not found in collections configuration file.` appears, the collection name and other information needs to be added to these files.
