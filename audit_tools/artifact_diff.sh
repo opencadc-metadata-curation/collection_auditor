@@ -1,9 +1,9 @@
 #!/bin/bash
 
-IMAGE="opencadc/audit_tools"
+IMAGE="opencadc/artifact-diff:3.13-slim"
 
 cp ~/.ssl/cadcproxy.pem .
 
 mkdir -p ./collectionAuditing
 
-sudo docker run --rm -ti --user $(id -u):$(id -g) -e HOME=/app -v ${PWD}:/app ${IMAGE}  python /usr/local/bin/caomArtifactDiff.py ${@}
+docker run --rm -ti --user $(id -u):$(id -g) -e HOME=/app -v ${PWD}:/app ${IMAGE}  python /usr/local/bin/caomArtifactDiff.py ${@}

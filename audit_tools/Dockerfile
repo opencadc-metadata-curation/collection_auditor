@@ -1,5 +1,5 @@
 ARG OPENCADC_PYTHON_VERSION=3.13
-FROM opencadc/astropy:${OPENCADC_PYTHON_VERSION}-slim as builder
+FROM opencadc/astropy:${OPENCADC_PYTHON_VERSION}-slim AS builder
 ARG OPENCADC_PYTHON_VERSION
 
 RUN apt-get update --no-install-recommends && \
@@ -9,7 +9,7 @@ RUN apt-get update --no-install-recommends && \
 RUN pip install --no-cache-dir requests polars
 
 ARG OPENCADC_BRANCH=main
-ARG OPENCADC_REPO=opencadc
+ARG OPENCADC_REPO=opencadc-metadata-curation
 
 COPY ./docker-entrypoint.sh /usr/local/bin/
 
