@@ -1,3 +1,5 @@
+These instructions assume a consistent execution location.
+
 ### Generate Diff Reports for Collections
 
 1. Download the script [artifact_diff.sh](https://github.com/opencadc-metadata-curation/collection_auditor/blob/main/audit_tools/artifact_diff.sh) 
