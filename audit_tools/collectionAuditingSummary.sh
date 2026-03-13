@@ -4,8 +4,8 @@
 # in the top-level collectionAuditing directory.
 
  ## Determine where the collectionAuditing directory is located and change to that directory.
-if [ -d "$HOME/work/collectionAuditing" ]; then
-    cd "$HOME/work/collectionAuditing"
+if [ -d "$HOME/collectionAuditing" ]; then
+    cd "$HOME/collectionAuditing"
 elif [ -d "/arc/projects/CADC/collectionAuditing" ]; then
     cd "/arc/projects/CADC/collectionAuditing"
 else
