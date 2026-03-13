@@ -134,13 +134,14 @@ def compare_results(collections, si_namespaces, caom_query_result, si_query_resu
 
     ## Count the number of uri's that are in both CAOM and SI and have the same contentCheckSum, contentLength and contentType values.
     consistent_files = pl.DataFrame()
-    consistent_files = caom_query_result.join(
-        si_query_result, on='uri', suffix='_si'
-    ).filter(
-        (pl.col('contentCheckSum') == pl.col('contentCheckSum_si')) &
-        (pl.col('contentLength') == pl.col('contentLength_si')) &
-        (pl.col('contentType') == pl.col('contentType_si'))
-    ).select(pl.col('uri')).sort('uri')
+    if len(caom_query_result) > 0 and len(si_query_result) > 0:
+        consistent_files = caom_query_result.join(
+            si_query_result, on='uri', suffix='_si'
+        ).filter(
+            (pl.col('contentCheckSum') == pl.col('contentCheckSum_si')) &
+            (pl.col('contentLength') == pl.col('contentLength_si')) &
+            (pl.col('contentType') == pl.col('contentType_si'))
+        ).select(pl.col('uri')).sort('uri')
     num_consistent_files = len(consistent_files)
     size_consistent_files = consistent_files.estimated_size()
     del consistent_files
@@ -185,12 +186,13 @@ def compare_results(collections, si_namespaces, caom_query_result, si_query_resu
     ## Create a new dataframe that contains the rows of uri's that are in both CAOM and SI but have the same contentCheckSum values but different contentLength values.
     ## If more than 0 rows, add a first column with the text DIFF_LENGTHS.
     diff_lengths = pl.DataFrame()
-    diff_lengths = caom_query_result.join(
-        si_query_result, on='uri', suffix='_si'
-    ).filter(
-        (pl.col('contentCheckSum') == pl.col('contentCheckSum_si')) &
-        (pl.col('contentLength') != pl.col('contentLength_si'))
-    ).sort('uri')
+    if len(caom_query_result) > 0 and len(si_query_result) > 0:
+        diff_lengths = caom_query_result.join(
+            si_query_result, on='uri', suffix='_si'
+        ).filter(
+            (pl.col('contentCheckSum') == pl.col('contentCheckSum_si')) &
+            (pl.col('contentLength') != pl.col('contentLength_si'))
+        ).sort('uri')
     if (len(diff_lengths) > 0):
         diff_lengths = diff_lengths.with_columns(pl.lit(collections).alias("collection")).select(['collection'] + diff_lengths.columns)
         diff_lengths = diff_lengths.with_columns(pl.lit("DIFF_LENGTHS").alias("category")).select(['category'] + diff_lengths.columns)
@@ -198,13 +200,14 @@ def compare_results(collections, si_namespaces, caom_query_result, si_query_resu
     ## Create a new dataframe that contains the rows of uri's that are in both CAOM and SI but have different contentType values while other values match.
     ## If more than 0 rows, add a first column with the text DIFF_TYPES.
     diff_types = pl.DataFrame()
-    diff_types = caom_query_result.join(
-        si_query_result, on='uri', suffix='_si'
-    ).filter(
-        (pl.col('contentCheckSum') == pl.col('contentCheckSum_si')) &
-        (pl.col('contentLength') == pl.col('contentLength_si')) &
-        (pl.col('contentType') != pl.col('contentType_si'))
-    ).sort('uri')
+    if len(caom_query_result) > 0 and len(si_query_result) > 0:
+        diff_types = caom_query_result.join(
+            si_query_result, on='uri', suffix='_si'
+        ).filter(
+            (pl.col('contentCheckSum') == pl.col('contentCheckSum_si')) &
+            (pl.col('contentLength') == pl.col('contentLength_si')) &
+            (pl.col('contentType') != pl.col('contentType_si'))
+        ).sort('uri')
     if (len(diff_types) > 0):
         diff_types = diff_types.with_columns(pl.lit(collections).alias("collection")).select(['collection'] + diff_types.columns)
         diff_types = diff_types.with_columns(pl.lit("DIFF_TYPES").alias("category")).select(['category'] + diff_types.columns)
