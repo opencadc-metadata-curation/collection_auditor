@@ -1,4 +1,4 @@
-name: OpenCADC AstroPy Docker CI
+name: OpenCADC Curation Artifact Diff Docker CI
 
 env:
   # Allow the set-env command below
