@@ -16,6 +16,8 @@ to the working directory.
 ### Summarize Diff Reports for All Collections
 1. Download the script [summarize_artifact_diff.sh](https://github.com/opencadc-metadata-curation/collection_auditor/blob/main/audit_tools/summarize_artifact_diff.sh) 
 to the working directory.
+1. Download the script [collectionAuditingSummary.sh](https://github.com/opencadc-metadata-curation/collection_auditor/blob/main/audit_tools/collectionAuditingSummary.sh) 
+to the working directory.
 1. Make the file executable: `chmod u+x summarize_artifact_diff.sh`
 1. Retrieve the Docker image: `docker pull opencadc/artifact-diff:3.13-slim`
 1. Execute the script: `./summarize_artifact_diff.sh`.
