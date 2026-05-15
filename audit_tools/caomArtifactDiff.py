@@ -9,7 +9,7 @@ import sys
 CERT_FILENAME = "/app/cadcproxy.pem"
 OUTPUT_DIRECTORY = f"artifactDiff_reports"
 OUTPUT_FILENAME_ROOT = "artifactDiff"
-SI_URL = "https://ws.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/luskan"
+SI_URL = "https://cadc-west-01.canfar.net/luskan"
 MAPPINGS_CONFIG = pl.DataFrame()
 COLLECTIONS_CONFIG = pl.DataFrame()
 SITES_CONFIG = pl.DataFrame()
