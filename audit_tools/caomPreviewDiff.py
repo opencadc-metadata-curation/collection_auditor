@@ -25,7 +25,7 @@ def format_duration(duration):
 ## Query the ams repository service for the specified collection.
 def query_ams_service(ams_url, query, schema):
     ams_url_sync = ams_url + "/sync"
-    data_list = {"LANG": "ADQL", "RESPONSEFORMAT": "CSV", "QUERY": query}
+    data_list = {"LANG": "ADQL", "RESPONSEFORMAT": "csv", "QUERY": query}
 
     try:
         # Make the POST request with a streaming response and a 2 hour timeout
