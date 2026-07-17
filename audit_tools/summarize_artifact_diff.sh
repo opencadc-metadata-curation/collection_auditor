@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IMAGE="opencadc/artifact-diff:3.13-slim"
+IMAGE="bucket.canfar.net/artifact-diff:3.13-slim"
 
 cp ~/.ssl/cadcproxy.pem .
 
